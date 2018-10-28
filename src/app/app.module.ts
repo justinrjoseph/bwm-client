@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 // Custom modules
 import { CoreModule } from './core/core.module';
+import { RentalsModule } from './rentals/rentals.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [
     BrowserModule,
-    CoreModule
+    CoreModule,
+    RentalsModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
