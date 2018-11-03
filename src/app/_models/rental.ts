@@ -1,11 +1,11 @@
 import { Category } from './category.enum';
 
-export class Rental {
-  id: number;
+export interface Rental {
+  _id: string;
   image: string;
   title: string;
-  city: string;
   street: string;
+  city: string;
   category: Category;
   bedrooms: number;
   description: string;

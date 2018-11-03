@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Rental } from '../../_models/rental';
+import { Category } from '../../_models/category.enum';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,6 +14,7 @@ import { RentalService } from '../rental.service';
 })
 export class RentalDetailComponent implements OnInit {
   rental: Rental;
+  Category = Category;
 
   constructor(
     private _route: ActivatedRoute,
@@ -20,9 +22,17 @@ export class RentalDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = +this._route.snapshot.params.id;
+    const id = this._route.snapshot.params.id;
 
     this._rentalService.getOne(id)
       .subscribe((rental: Rental) => this.rental = rental);
+  }
+
+  get guestCount(): number {
+    return this.rental.bedrooms + 4;
+  }
+
+  get bedCount(): number {
+    return this.rental.bedrooms + 2;
   }
 }
