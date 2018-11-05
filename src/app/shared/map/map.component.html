@@ -1,0 +1,23 @@
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="13"
+  (mapReady)="getCoordinates($event)">
+  <agm-circle *ngIf="lat && lng"
+    [latitude]="lat"
+    [longitude]="lng"
+    [radius]="800"
+    [fillColor]="'#f44336'"
+    [fillOpacity]=".4">
+  </agm-circle>
+
+  <agm-info-window *ngIf="invalidMap"
+    [latitude]="lat"
+    [longitude]="lng"
+    [maxWidth]="300"
+    [isOpen]="true">
+    There was a problem processing the location for this rental. Our engineers
+    will resolve the issue as quickly as possible. Please contact the rental owner
+    directly for more information. We apologize for any inconvenience.
+  </agm-info-window>
+</agm-map>

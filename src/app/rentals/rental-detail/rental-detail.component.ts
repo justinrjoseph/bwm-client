@@ -28,6 +28,10 @@ export class RentalDetailComponent implements OnInit {
       .subscribe((rental: Rental) => this.rental = rental);
   }
 
+  get location() {
+    return `${this.rental.street}, ${this.rental.city}`;
+  }
+
   get guestCount(): number {
     return this.rental.bedrooms + 4;
   }
