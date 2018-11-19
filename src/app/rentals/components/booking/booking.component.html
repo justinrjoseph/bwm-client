@@ -1,0 +1,31 @@
+<div class="booking">
+  <h3 class="booking__rate">
+    {{ dailyRate | currency:'USD':'symbol':'0.0-0' }}
+    <span class="booking__per-night">per night</span>
+  </h3>
+
+  <hr>
+
+  <label>Dates:</label>
+  <input
+    type="text"
+    name="dateRange"
+    class="form-control daterangerpicker-input"
+    daterangepicker
+    [options]="options"
+    (selected)="chooseDates($event, dateRange)">
+
+  <div class="form-group">
+    <label for="guests">Guests</label>
+    <input type="number" id="guests" class="form-control" aria-describedby="emailHelp">
+  </div>
+
+  <button class="btn btn-danger booking__confirm btn-block">Reserve</button>
+
+  <hr>
+
+  <p class="booking__interest">People are interested in this rental.</p>
+  <p class="booking__views">
+    More than 500 people viewed this rental in the last month.
+  </p>
+</div>

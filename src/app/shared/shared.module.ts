@@ -7,10 +7,10 @@ import { NgPipesModule, UcWordsPipe } from 'ngx-pipes';
 import { AgmCoreModule } from '@agm/core';
 
 // Components
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './components/map/map.component';
 
 // Services
-import { MapService } from './map.service';
+import { MapService } from './services/map.service';
 
 @NgModule({
   imports: [

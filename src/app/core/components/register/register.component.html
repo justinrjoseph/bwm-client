@@ -1,0 +1,108 @@
+<section class="register">
+  <div class="bwm-registration">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="bwm-registation__heading">Register</h1>
+
+        <form class="bwm-registation__form" [formGroup]="form" (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [formControlName]="'name'">
+
+            <div *ngIf="nameInvalid" class="alert alert-danger">
+              <div *ngIf="nameMinlengthError">
+                Username must be minimum {{ nameMinlengthReq }} characters.
+              </div>
+              <div *ngIf="nameMaxlengthError">
+                Username must not be longer than {{ nameMaxlengthAllowed }} characters.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              [formControlName]="'email'">
+
+            <div *ngIf="emailInvalid" class="alert alert-danger">
+              <div *ngIf="emailRequired">Email is required.</div>
+              <div *ngIf="emailMinlengthError">
+                  Email must be minimum {{ emailMinlengthReq }} characters.
+                </div>
+                <div *ngIf="emailMaxlengthError">
+                  Email must not be longer than {{ emailMaxlengthAllowed }} characters.
+                </div>
+              <div *ngIf="emailInvalidFormat">Email format is invalid.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              [formControlName]="'password'"
+              autocomplete>
+
+            <div *ngIf="passwordInvalid" class="alert alert-danger">
+              <div *ngIf="passwordRequired">Password is required.</div>
+              <div *ngIf="passwordMinlengthError">
+                Password must be minimum {{ passwordMinlengthReq }} characters.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="passwordConfirmation">Password Confirmation</label>
+            <input
+              type="password"
+              class="form-control"
+              id="passwordConfirmation"
+              [formControlName]="'passwordConfirmation'"
+              autocomplete>
+
+            <div *ngIf="passwordConfirmationInvalid" class="alert alert-danger">
+              <div *ngIf="passwordConfirmationRequired">
+                Password Confirmation is required.
+              </div>
+              <div *ngIf="passwordConfirmationMinlengthError">
+                Password Confirmation must be minimum {{ passwordConfirmationMinlengthReq }} characters.
+              </div>
+            </div>
+
+            <div *ngIf="passwordsMismatched" class="alert alert-danger">
+              Password and Password Confirmation must match.
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn__submit"
+            [disabled]="form.invalid">
+            Submit
+          </button>
+        </form>
+
+        <div *ngIf="errors" class="alert alert-danger">
+          <p>{{ errors }}</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 ml-auto">
+        <div class="bwm-registration__image">
+          <h2 class="bwm-registration__benefit">As our member, you have access to incredible places in the world.</h2>
+
+          <img src="assets/images/register-image.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

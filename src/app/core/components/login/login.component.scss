@@ -1,0 +1,57 @@
+@import 'variables';
+
+.btn__submit {
+  background-color: $main-color;
+  color: white;
+  font-size: 1.25rem;
+  border-color: $main-color;
+  margin-bottom: .625rem;
+
+  &:hover, &:focus, &:active {
+    background-color: $main-color;
+    border-color: $main-color;
+  }
+}
+
+.bwm-login {
+  color: $text-color;
+
+  &__heading {
+    font-weight: 700;
+    margin-bottom: 1.875rem;
+  }
+
+  &__form {
+    margin-bottom: .625rem;
+
+    label {
+      font-size: .75rem;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: .3125rem;
+    }
+  }
+
+  &__benefit {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    color: #f1f1f1;
+    font-size: 2.625rem;
+    text-align: center;
+    letter-spacing: .0625rem;
+    padding: 2.5rem;
+    margin-top: 3.125rem;
+  }
+
+  .alert {
+    p {
+      margin: 0;
+    }
+  }
+}

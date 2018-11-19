@@ -1,0 +1,39 @@
+@import 'variables';
+
+.booking {
+  padding: 1.25rem;
+  border: .0625rem solid $light-grey;
+
+  &__rate {
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
+
+  &__per-night {
+    font-size: .8125rem;
+    font-weight: 300;
+  }
+
+  &__confirm {
+    background-color: #ff5a5f;
+    padding: .8125rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+
+  &__interest {
+    font-size: .875rem;
+    margin-bottom: .625rem;
+  }
+
+  &__views {
+    font-size: .8125rem;
+    font-weight: 300;
+  }
+
+  label {
+    font-size: .75rem;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+}

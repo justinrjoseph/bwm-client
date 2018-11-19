@@ -1,0 +1,35 @@
+@import 'variables';
+
+.navbar {
+  padding: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.navbar-brand {
+  color: $main-color;
+  font-size: 1.875rem;
+  font-weight: 500;
+  letter-spacing: .0625rem;
+  margin-right: 1.875rem;
+}
+
+.bwm-search {
+  height: 3.125rem;
+  width: 18.75rem;
+}
+
+.nav-item {
+  font-size: .875rem
+}
+
+.btn__search {
+  color: $main-color;
+  border-color: $main-color;
+
+  &:hover, &:focus, &:active {
+    background-color: transparent;
+    color: $main-color !important;
+    border-color: $main-color !important;
+    box-shadow: none;
+  }
+}

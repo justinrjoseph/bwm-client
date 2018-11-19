@@ -1,0 +1,11 @@
+<section class="rentals">
+  <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+
+  <h1>Your Home Around the World</h1>
+
+  <div class="row">
+    <div class="col-xs-6 col-md-3" *ngFor="let rental of rentals$ | async">
+      <rental [rental]="rental"></rental>
+    </div>
+  </div>
+</section>
