@@ -20,10 +20,6 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <ng-container
-        *ngIf="loggedIn; then activeUser else anonymousUser">
-      </ng-container>
-
       <ng-template #anonymousUser>
         <li class="nav-item">
           <a
@@ -44,7 +40,7 @@
         </li>
       </ng-template>
 
-      <ng-template #activeUser>
+      <ng-template [ngIf]="loggedIn" [ngIfElse]="anonymousUser">
         <li class="nav-item">
           <a class="nav-link">{{ user.name }}</a>
         </li>
