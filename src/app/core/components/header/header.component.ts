@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../../../shared/models/user';
-
-import { AuthService } from '../../../shared/services/auth.service';
+import { User, AuthService } from '../../../shared';
 
 @Component({
   selector: 'bwm-header',

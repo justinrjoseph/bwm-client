@@ -16,8 +16,8 @@ import { Jwt } from '../models/jwt';
 
 @Injectable()
 export class AuthService {
-  private _usersApi = environment.usersApi;
-  private _authApi = environment.authApi;
+  private _usersAPI = environment.usersAPI;
+  private _authAPI = environment.authAPI;
 
   private _jwtHelper = new JwtHelperService();
   private _loggedIn = new BehaviorSubject<boolean>(false);;
@@ -25,11 +25,11 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) {}
 
   register(user: User): Observable<boolean> {
-    return this._processUser(this._usersApi, user);
+    return this._processUser(this._usersAPI, user);
   }
 
   login(user: User): Observable<boolean> {
-    return this._processUser(this._authApi, user);
+    return this._processUser(this._authAPI, user);
   }
 
   logout(): void {

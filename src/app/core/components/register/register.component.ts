@@ -10,7 +10,7 @@ import {
 
 import { CustomValidators } from 'ng2-validation';
 
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../shared';
 
 import { Router } from '@angular/router';
 

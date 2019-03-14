@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Components
-import { RentalListComponent } from './components/rental-list/rental-list.component';
-import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
+import { RentalListComponent, RentalDetailComponent } from './components';
 
 // Guards
 import { AuthGuard } from '../shared/guards/auth.guard';

@@ -1,12 +1,10 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
 
-import { LatLng } from '@agm/core';
-
-import { MapService } from '../../services/map.service';
+import { Coordinates } from '../../';
 
 import { GoogleMap } from '@agm/core/services/google-maps-types';
 
-import { Coordinates } from '../../models/Coordinates';
+import { MapService } from '../../../shared/services';
 
 @Component({
   selector: 'map',

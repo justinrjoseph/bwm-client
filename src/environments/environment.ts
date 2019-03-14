@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  usersApi: '/api/users',
-  authApi: '/api/auth',
-  rentalsApi: '/api/rentals'
+  usersAPI: '/api/users',
+  authAPI: '/api/auth',
+  rentalsAPI: '/api/rentals',
+  bookingsAPI: '/api/bookings'
 };
 
 /*

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { Rental } from '../../../shared/models/rental';
+import { Rental } from '../../../shared';
 
 import { ActivatedRoute } from '@angular/router';
+
 import { RentalService } from '../../services/rental.service';
 
 @Component({

@@ -2,6 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Third-party modules
+import { ToastrModule } from 'ngx-toastr';
 
 // Custom modules
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +21,9 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
-    RentalsModule
+    RentalsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

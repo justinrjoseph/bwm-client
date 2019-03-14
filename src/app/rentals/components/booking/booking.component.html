@@ -1,6 +1,6 @@
 <div class="booking">
   <h3 class="booking__rate">
-    {{ dailyRate | currency:'USD':'symbol':'0.0-0' }}
+    {{ rental.dailyRate | currency:'USD':'symbol':'0.0-0' }}
     <span class="booking__per-night">per night</span>
   </h3>
 
@@ -13,19 +13,81 @@
     class="form-control daterangerpicker-input"
     daterangepicker
     [options]="options"
-    (selected)="chooseDates($event, dateRange)">
+    (selected)="chooseDates($event)">
 
   <div class="form-group">
     <label for="guests">Guests</label>
-    <input type="number" id="guests" class="form-control" aria-describedby="emailHelp">
+    <input
+      type="number"
+      id="guests"
+      class="form-control"
+      aria-describedby="emailHelp"
+      [(ngModel)]="newBooking.guests">
   </div>
 
-  <button class="btn btn-danger booking__confirm btn-block">Reserve</button>
+  <button
+    class="btn btn-danger booking__confirm btn-block"
+    (click)="launchConfirmRentalModal(content)"
+    [disabled]="reservationNotReady">
+    Reserve
+  </button>
 
   <hr>
 
   <p class="booking__interest">People are interested in this rental.</p>
+
   <p class="booking__views">
     More than 500 people viewed this rental in the last month.
   </p>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="booking__modal">
+    <div class="modal-header">
+      <h4 class="modal-title booking__modal__title">Confirm Booking</h4>
+
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>Dates: {{ newBooking.start }} to {{ newBooking.end }}</p>
+
+      <p>
+        <em>{{ newBooking.days }}</em> nights / <em>{{ rental.dailyRate | currency:'USD':'symbol' }}</em> per night
+      </p>
+
+      <p>Guests: <em>{{ newBooking.guests }}</em></p>
+
+      <p>Price: <em>{{ newBooking.totalPrice | currency:'USD':'symbol' }}</em></p>
+
+      <p>Please click Confirm to book your Rental!</p>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger booking__modal__error">
+      {{ error }}
+    </div>
+
+    <div class="modal-footer booking__modal__buttons">
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="c('Close click')">
+        Close
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="confirmBooking()">
+        Confirm
+      </button>
+    </div>
+  </div>
+</ng-template>
+

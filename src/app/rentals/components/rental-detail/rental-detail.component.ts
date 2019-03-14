@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Rental } from '../../../shared/models/rental';
-import { Category } from '../../../shared/models/category.enum';
+import { Rental, Category } from '../../../shared';
 
 import { ActivatedRoute } from '@angular/router';
 

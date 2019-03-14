@@ -36,4 +36,46 @@
     font-weight: 300;
     margin-bottom: 0;
   }
+
+  &__modal {
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    &__error {
+      margin: 1em;
+    }
+
+    &__buttons {
+      font-size: 1.25rem;
+      margin: .9375em 0;
+    }
+
+    em {
+      font-size: .9375rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: .5em;
+    }
+  }
+}
+
+.daterangepicker {
+  td {
+    &.in-range {
+      background-color: #ffa9a9 !important;
+    }
+
+    &.active {
+      background-color: $main-color !important;
+
+      &:hover {
+        background-color: $main-color !important;
+      }
+    }
+  }
 }

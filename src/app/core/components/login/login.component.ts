@@ -4,7 +4,7 @@ import { FormBuilder, AbstractControl, FormGroup, Validators } from '@angular/fo
 
 import { CustomValidators } from 'ng2-validation';
 
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../shared';
 
 import { Router, ActivatedRoute } from '@angular/router';
 

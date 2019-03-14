@@ -3,28 +3,22 @@ import { NgModule } from '@angular/core';
 
 // Third-party modules
 import { Daterangepicker } from 'ng2-daterangepicker';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Custom modules
 import { RentalRoutingModule } from './rental-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared';
 
-// Components, pipes
-import { RentalListComponent } from './components/rental-list/rental-list.component';
-import { RentalComponent } from './components/rental/rental.component';
-import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
-import { BookingComponent } from './components/booking/booking.component';
+// Components
+import { rentalComponents } from './components';
 
 @NgModule({
   imports: [
     RentalRoutingModule,
     SharedModule,
-    Daterangepicker
+    Daterangepicker,
+    NgbModule
   ],
-  declarations: [
-    RentalListComponent,
-    RentalComponent,
-    RentalDetailComponent,
-    BookingComponent
-  ]
+  declarations: [...rentalComponents]
 })
 export class RentalsModule {}

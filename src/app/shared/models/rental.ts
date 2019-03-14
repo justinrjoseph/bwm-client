@@ -1,4 +1,4 @@
-import { Category } from './category.enum';
+import { Category, Booking } from './';
 
 export interface Rental {
   _id: string;
@@ -12,4 +12,5 @@ export interface Rental {
   dailyRate: number;
   shared: boolean;
   createdAt: string;
+  bookings: Booking[];
 }

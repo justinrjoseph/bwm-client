@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Rental } from '../../shared/models/rental';
+import { Rental } from '../../shared';
 
 import { Observable } from 'rxjs';
 
@@ -12,15 +12,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RentalService {
-  rentalsApi = environment.rentalsApi;
+  rentalsAPI = environment.rentalsAPI;
 
   constructor(private _http: HttpClient) {}
 
   getAll(): Observable<Rental[]> {
-    return this._http.get<Rental[]>(this.rentalsApi);
+    return this._http.get<Rental[]>(this.rentalsAPI);
   }
 
   getOne(id: string): Observable<Rental> {
-    return this._http.get<Rental>(`${this.rentalsApi}/${id}`);
+    return this._http.get<Rental>(`${this.rentalsAPI}/${id}`);
   }
 }

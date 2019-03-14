@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Rental } from '../../../shared/models/rental';
-import { Category } from '../../../shared/models/category.enum';
+import { Rental, Category } from '../../../shared';
 
 @Component({
   selector: 'rental',
