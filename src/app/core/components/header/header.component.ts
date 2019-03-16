@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { User, AuthService } from '../../../shared';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'bwm-header',
   templateUrl: './header.component.html',
@@ -11,9 +13,9 @@ export class HeaderComponent implements OnInit {
   loggedIn = false;
   user: User;
 
-  constructor(private _auth: AuthService) {}
+  constructor(private _auth: AuthService, private _router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._auth.loggedIn()
       .subscribe(
         (isLoggedIn: boolean) => {
@@ -26,7 +28,11 @@ export class HeaderComponent implements OnInit {
       );
   }
 
-  logout() {
+  logout(): void {
     this._auth.logout();
+  }
+
+  filter(city: string) {
+    this._router.navigate([`/rentals/${city}/results`]);
   }
 }

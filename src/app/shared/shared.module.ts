@@ -16,7 +16,6 @@ import { MapService } from './services/map.service';
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     NgPipesModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBwLpqe7fiPXkPK72N0xe2j0O5nXCIi-s0'

@@ -1,0 +1,11 @@
+<section class="rentals">
+  <h1 *ngIf="rentals.length">Rentals in {{ city | titlecase }}</h1>
+
+  <h1 *ngIf="error">{{ error }}</h1>
+
+  <div class="row">
+    <div class="col-xs-6 col-md-3" *ngFor="let rental of rentals">
+      <rental [rental]="rental"></rental>
+    </div>
+  </div>
+</section>

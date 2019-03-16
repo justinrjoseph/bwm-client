@@ -20,7 +20,7 @@ export class RentalListComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _rentalService: RentalService
-  ) { }
+  ) {}
 
   ngOnInit() {
     const registered = this._route.snapshot.queryParams.registered;

@@ -4,6 +4,12 @@ body {
   color: $text-color;
 }
 
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
 a, a:hover {
   text-decoration: none;
 }

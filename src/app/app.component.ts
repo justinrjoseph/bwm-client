@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private _auth: AuthService, private _router: Router) {}
 
   ngOnInit(): void {
-    if ( this._auth.tokenValid ) this._router.navigate(['/']);
+    // if ( this._auth.tokenValid ) this._router.navigate(['/']);
   }
 }

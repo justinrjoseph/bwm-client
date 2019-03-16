@@ -22,15 +22,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class BookingComponent implements OnInit {
   @Input('rental') rental: Rental;
 
+  newBooking: Booking;
+  error: string;
+
   @ViewChild(DaterangePickerComponent)
   private calendar: DaterangePickerComponent;
 
   private bookedDates: string[] = [];
 
   private modal: NgbModalRef;
-
-  newBooking: Booking;
-  error: string;
 
   options = {
     locale: { format: Booking.DATE_FORMAT },

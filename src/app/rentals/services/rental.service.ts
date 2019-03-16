@@ -2,7 +2,7 @@ import { environment } from '../../../environments/environment';
 
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Rental } from '../../shared';
 
@@ -22,5 +22,12 @@ export class RentalService {
 
   getOne(id: string): Observable<Rental> {
     return this._http.get<Rental>(`${this.rentalsAPI}/${id}`);
+  }
+
+  filter(city: string): Observable<Rental[]> {
+    const params = new HttpParams()
+      .set('city', city);
+
+    return this._http.get<Rental[]>(this.rentalsAPI, { params });
   }
 }

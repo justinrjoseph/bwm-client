@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Rental, Category } from '../../../shared';
 
@@ -7,12 +7,8 @@ import { Rental, Category } from '../../../shared';
   templateUrl: './rental.component.html',
   styleUrls: ['./rental.component.scss']
 })
-export class RentalComponent implements OnInit {
-  @Input() rental: Rental;
+export class RentalComponent {
+  @Input('rental') rental: Rental;
+
   Category = Category;
-
-  constructor() {}
-
-  ngOnInit() {
-  }
 }

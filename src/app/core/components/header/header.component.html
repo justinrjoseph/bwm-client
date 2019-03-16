@@ -1,20 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" [routerLink]="['/']">BookWithMe</a>
 
-  <form class="form-inline">
+  <form #f="ngForm" class="form-inline">
     <input
       type="search"
-      class="form-control mr-sm-2 bwm-search"
-      placeholder="Search"
-      aria-label="Search">
+      name="city"
+      class="form-control mr-sm-2 bwm-filter"
+      placeholder="city to filter..."
+      aria-label="city to filter..."
+      (keyup.enter)="filter(city.value)"
+      #city="ngModel"
+      ngModel
+      required>
     <button
-      type="submit"
-      class="btn btn-outline-success my-2 my-sm-0 btn__search">
-      Search
+      class="btn btn-outline-success my-2 my-sm-0 btn__filter"
+      (click)="filter(city.value)"
+      [disabled]="f.invalid">
+      Filter Rentals
     </button>
   </form>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
