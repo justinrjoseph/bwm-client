@@ -1,0 +1,134 @@
+<section class="rental-create">
+  <div class="rental-create__form">
+      <div class="row">
+        <div class="col-md-5">
+          <h1>Create Rental</h1>
+
+          <form [formGroup]="form">
+            <div class="form-group">
+              <label for="city">Category</label>
+
+              <select
+                name="category"
+                class="form-control"
+                id="city"
+                [formControlName]="'category'">
+                <option *ngFor="let category of categories" [value]="category">
+                  {{ category }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                class="form-control"
+                id="title"
+                [formControlName]="'title'">
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                name="description"
+                rows="5"
+                class="form-control"
+                id="description"
+                [formControlName]="'description'">
+              </textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="image">Image</label>
+              <input
+                type="file"
+                name="image"
+                class="form-control"
+                id="image"
+                placeholder="Upload file..."
+                (change)="handleImage()">
+            </div>
+
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input
+                type="text"
+                name="street"
+                class="form-control"
+                id="street"
+                [formControlName]="'street'">
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                class="form-control"
+                id="city"
+                [formControlName]="'city'">
+            </div>
+
+            <div class="form-group">
+              <label for="bedrooms">Bedrooms</label>
+              <input
+                type="number"
+                name="bedrooms"
+                class="form-control"
+                id="bedrooms"
+                [formControlName]="'bedrooms'">
+            </div>
+
+            <div class="form-group">
+              <label for="dailyRate">Daily Rate</label>
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">$</div>
+                </div>
+
+                <input
+                  type="number"
+                  name="dailyRate"
+                  class="form-control"
+                  id="dailyRate"
+                  [formControlName]="'dailyRate'">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="shared">Shared</label>
+              <input
+                type="checkbox"
+                name="shared"
+                class="form-control"
+                id="shared"
+                [formControlName]="'shared'">
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="createRental()"
+              [disabled]="form.invalid">
+              Submit
+            </button>
+          </form>
+
+          <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+        </div>
+
+        <div class="col-md-6 ml-auto">
+          <div class="rental-create__image-container">
+            <h2 class="rental-create__benefit">
+              Add to our incredible library of awesome rentals!
+            </h2>
+
+            <img src="assets/images/create-rental.jpg" alt="kitchen in rental">
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

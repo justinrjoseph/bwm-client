@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   RentalListComponent,
   RentalDetailComponent,
-  RentalsFilterComponent
+  RentalsFilterComponent,
+  RentalCreateComponent
 } from './components';
 
 // Guards
@@ -15,11 +16,8 @@ import { AuthGuard } from '../shared/guards/auth.guard';
 const routes: Routes = [
   { path: 'rentals', children: [
     { path: '', component: RentalListComponent },
-    {
-      path: ':id',
-      component: RentalDetailComponent,
-      canActivate: [AuthGuard]
-    },
+    { path: 'new', component: RentalCreateComponent, canActivate: [AuthGuard] },
+    { path: ':id', component: RentalDetailComponent },
     { path: ':city/results', component: RentalsFilterComponent }
   ] }
 ];

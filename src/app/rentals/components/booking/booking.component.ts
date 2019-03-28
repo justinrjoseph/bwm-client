@@ -7,7 +7,7 @@ import { DaterangePickerComponent } from 'ng2-daterangepicker';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { BookingService } from '../../services';
-import { HelperService } from '../../../shared';
+import { AuthService, HelperService } from '../../../shared';
 
 import * as moment from 'moment';
 
@@ -22,6 +22,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class BookingComponent implements OnInit {
   @Input('rental') rental: Rental;
 
+  loggedIn = false;
   newBooking: Booking;
   error: string;
 
@@ -41,6 +42,7 @@ export class BookingComponent implements OnInit {
   };
 
   constructor(
+    private _auth: AuthService,
     private _modal: NgbModal,
     private _toastr: ToastrService,
     private _helper: HelperService,
@@ -48,6 +50,9 @@ export class BookingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this._auth.loggedIn()
+      .subscribe((isLoggedIn: boolean) => this.loggedIn = isLoggedIn);
+
     this.newBooking = new Booking();
 
     this._getBookedDates();

@@ -6,33 +6,41 @@
 
   <hr>
 
-  <label>Dates:</label>
-  <input
-    type="text"
-    name="dateRange"
-    class="form-control daterangerpicker-input"
-    daterangepicker
-    [options]="options"
-    (selected)="chooseDates($event)">
-
-  <div class="form-group">
-    <label for="guests">Guests</label>
+  <ng-template [ngIf]="loggedIn" [ngIfElse]="anonymousUser">
+    <label>Dates:</label>
     <input
-      type="number"
-      id="guests"
-      class="form-control"
-      aria-describedby="emailHelp"
-      [(ngModel)]="newBooking.guests">
-  </div>
+      type="text"
+      name="dateRange"
+      class="form-control daterangerpicker-input"
+      daterangepicker
+      [options]="options"
+      (selected)="chooseDates($event)">
 
-  <button
-    class="btn btn-danger booking__confirm btn-block"
-    (click)="launchConfirmRentalModal(content)"
-    [disabled]="reservationNotReady">
-    Reserve
-  </button>
+    <div class="form-group">
+      <label for="guests">Guests</label>
+      <input
+        type="number"
+        id="guests"
+        class="form-control"
+        aria-describedby="emailHelp"
+        [(ngModel)]="newBooking.guests">
+    </div>
 
-  <hr>
+    <button
+      class="btn btn-danger booking__confirm btn-block"
+      (click)="launchConfirmRentalModal(content)"
+      [disabled]="reservationNotReady">
+      Reserve
+    </button>
+
+    <hr>
+  </ng-template>
+
+  <ng-template #anonymousUser>
+    <a [routerLink]="['/login']" class="booking__login-reqd">
+      Log in to Book Today!
+    </a>
+  </ng-template>
 
   <p class="booking__interest">People are interested in this rental.</p>
 

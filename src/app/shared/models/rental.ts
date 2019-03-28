@@ -1,16 +1,25 @@
-import { Category, Booking } from './';
+import { Category } from './category.enum';
+import { Booking } from './booking';
+import { User } from './user';
 
-export interface Rental {
+export class Rental {
+  static readonly CATEGORIES = Object.values(Category);
+
   _id: string;
-  image: string;
+  category: Category;
   title: string;
+  image: string;
+  description: string;
   street: string;
   city: string;
-  category: Category;
   bedrooms: number;
-  description: string;
   dailyRate: number;
-  shared: boolean;
+  shared = false;
   createdAt: string;
+  user: User;
   bookings: Booking[];
+
+  constructor(init?: Partial<Rental>) {
+    Object.assign(this, init);
+  }
 }

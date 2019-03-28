@@ -1,0 +1,49 @@
+@import 'variables';
+
+.rental-create {
+  &__form {
+    color: $text-color;
+
+    form {
+      margin-bottom: .625em;
+    }
+
+    label {
+      font-size: .75rem;
+    }
+
+    input[type=file] {
+      height: auto;
+    }
+
+    input[type=checkbox] {
+      width: auto;
+    }
+
+    &__alert {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &__image-container {
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: .3125rem;
+    }
+  }
+
+  &__benefit {
+    position: absolute;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .5);
+    color: #f1f1f1;
+    font-size: 2.625rem;
+    padding: 2.5rem;
+    margin-top: 3.125em;
+    letter-spacing: .0625rem;
+  }
+}

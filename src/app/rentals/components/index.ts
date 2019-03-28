@@ -1,21 +1,24 @@
-import { BookingComponent } from './booking/booking.component';
+import { RentalsFilterComponent } from './rentals-filter/rentals-filter.component';
+import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalComponent } from './rental/rental.component';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
-import { RentalListComponent } from './rental-list/rental-list.component';
-import { RentalsFilterComponent } from './rentals-filter/rentals-filter.component';
+import { BookingComponent } from './booking/booking.component';
+import { RentalCreateComponent } from './rental-create/rental-create.component';
 
 export const rentalComponents = [
-  BookingComponent,
+  RentalsFilterComponent,
+  RentalListComponent,
   RentalComponent,
   RentalDetailComponent,
-  RentalListComponent,
-  RentalsFilterComponent
+  BookingComponent,
+  RentalCreateComponent
 ];
 
 export {
-  BookingComponent,
+  RentalsFilterComponent,
+  RentalListComponent,
   RentalComponent,
   RentalDetailComponent,
-  RentalListComponent,
-  RentalsFilterComponent
+  BookingComponent,
+  RentalCreateComponent
 };

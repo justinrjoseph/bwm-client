@@ -14,6 +14,22 @@
     font-weight: 300;
   }
 
+  &__login-reqd {
+    display: block;
+    width: 90%;
+    background-color: $main-color;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: .625rem;
+    border-radius: .625rem;
+    margin: 0 auto .625em auto;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
   &__confirm {
     background-color: #ff5a5f;
     padding: .8125rem;

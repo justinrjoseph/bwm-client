@@ -54,6 +54,22 @@
       </ng-template>
 
       <ng-template [ngIf]="loggedIn" [ngIfElse]="anonymousUser">
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true">
+            Owner Admin
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/rentals/new']">
+              Create Rental
+            </a>
+          </div>
+        </div>
+
         <li class="nav-item">
           <a class="nav-link">{{ user.name }}</a>
         </li>

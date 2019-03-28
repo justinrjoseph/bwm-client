@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { RentalService } from '../../services/rental.service';
 
 @Component({
-  selector: 'rental-detail',
   templateUrl: './rental-detail.component.html',
   styleUrls: ['./rental-detail.component.scss']
 })

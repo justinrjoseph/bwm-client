@@ -24,6 +24,10 @@ export class RentalService {
     return this._http.get<Rental>(`${this.rentalsAPI}/${id}`);
   }
 
+  create(rental: Rental): Observable<Rental> {
+    return this._http.post<Rental>(this.rentalsAPI, rental);
+  }
+
   filter(city: string): Observable<Rental[]> {
     const params = new HttpParams()
       .set('city', city);
