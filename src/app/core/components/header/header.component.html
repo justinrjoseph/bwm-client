@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="['/']">BookWithMe</a>
+  <a class="navbar-brand" [routerLink]="['/']">
+    BookWithMe
+    <img src="favicon.ico" alt="Angular">
+  </a>
 
   <form #f="ngForm" class="form-inline">
     <input
@@ -66,6 +69,14 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" [routerLink]="['/rentals/new']">
               Create Rental
+            </a>
+
+            <a class="dropdown-item" [routerLink]="['/manage/rentals']">
+              Manage Rentals
+            </a>
+
+            <a class="dropdown-item" [routerLink]="['/manage/bookings']">
+              Manage Bookings
             </a>
           </div>
         </div>

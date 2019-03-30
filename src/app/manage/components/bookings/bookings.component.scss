@@ -1,0 +1,26 @@
+@import 'variables';
+
+.btn {
+  font-size: .75rem;
+  margin-left: 1.5em;
+
+  &--ghost {
+    background-color: #fff;
+    color: $main-color;
+    border-color: $main-color;
+
+    &:hover, &:focus, &:active {
+      background-color: transparent;
+      color: $main-color !important;
+      border-color: $main-color !important;
+      box-shadow: none;
+    }
+  }
+}
+
+.bookings__modal__items {
+  p {
+    font-size: .875rem;
+    margin-bottom: 0;
+  }
+}

@@ -20,6 +20,10 @@ export class BookingService {
     return this._http.get<Booking[]>(this.bookingsAPI);
   }
 
+  getAllForUser(): Observable<Booking[]> {
+    return this._http.get<Booking[]>(`${this.bookingsAPI}/manage`);
+  }
+
   getOne(id: string): Observable<Booking> {
     return this._http.get<Booking>(`${this.bookingsAPI}/${id}`);
   }

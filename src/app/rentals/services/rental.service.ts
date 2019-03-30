@@ -20,12 +20,20 @@ export class RentalService {
     return this._http.get<Rental[]>(this.rentalsAPI);
   }
 
+  getAllForUser(): Observable<Rental[]> {
+    return this._http.get<Rental[]>(`${this.rentalsAPI}/manage`);
+  }
+
   getOne(id: string): Observable<Rental> {
     return this._http.get<Rental>(`${this.rentalsAPI}/${id}`);
   }
 
   create(rental: Rental): Observable<Rental> {
     return this._http.post<Rental>(this.rentalsAPI, rental);
+  }
+
+  delete(id: string): Observable<Rental> {
+    return this._http.delete<Rental>(`${this.rentalsAPI}/${id}`);
   }
 
   filter(city: string): Observable<Rental[]> {

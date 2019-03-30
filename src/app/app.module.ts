@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { RentalsModule } from './rentals/rentals.module';
+import { ManageModule } from './manage/manage.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     CoreModule,
     RentalsModule,
+    ManageModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

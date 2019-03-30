@@ -1,0 +1,37 @@
+.bookings {
+  h1, .card {
+    margin-bottom: 1.25em;
+  }
+
+  .card-header {
+    text-transform: capitalize;
+  }
+
+  .card-block {
+    padding: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
+  &__item {
+    &__description, &__days {
+      font-size: .875rem;
+    }
+
+    &__days {
+      font-weight: bold;
+    }
+
+    &__price {
+      font-weight: 700;
+    }
+  }
+
+  .btn-danger {
+    color: white;
+    font-size: .875rem;
+    padding: .9375rem;
+  }
+}

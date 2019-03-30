@@ -1,0 +1,67 @@
+<section class="rentals">
+  <h1>My Rentals</h1>
+
+  <div class="row">
+    <ng-template [ngIf]="rentals.length" [ngIfElse]="noRentals">
+      <div *ngFor="let rental of rentals; let i = index" class="col-md-4">
+        <div class="card text-center">
+          <div class="card-block">
+            <h4 class="card-title">
+              {{ rental.title }} - {{ rental.city }}
+            </h4>
+
+            <button class="btn btn--ghost"
+              [routerLink]="['/rentals', rental._id]">
+              Go to Rental
+            </button>
+
+            <bookings
+              *ngIf="rental.bookings.length"
+              [bookings]="rental.bookings">
+            </bookings>
+          </div>
+
+          <div class="card-footer text-muted">
+            <p>Created on {{ rental.createdAt | date:'longDate' }}</p>
+
+            <button
+              *ngIf="deleteIdx !== i"
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteIdx = i">
+              Delete
+            </button>
+
+            <div *ngIf="deleteIdx === i">
+              <span class="confirm-delete">Are you sure?</span>
+
+              <button
+                class="btn btn-danger"
+                (click)="deleteIdx = null">
+                No
+              </button>
+              <button
+                class="btn btn-success"
+                (click)="deleteRental(rental._id)">
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noRentals>
+      <div class="col-md-8">
+        <div class="alert alert-warning">
+          You have no rentals.
+          <button
+            class="btn btn-bwm"
+            [routerLink]="['/rentals/new']">
+            Register a Rental Today
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</section>
