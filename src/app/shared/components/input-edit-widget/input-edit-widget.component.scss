@@ -1,0 +1,13 @@
+.edit-widget {
+  margin-bottom: 1em;
+
+  &__buttons {
+    display: inline-block;
+  }
+
+  &__btn {
+    color: #fff;
+    font-size: .75rem;
+    margin: -1em 0 0 1em;
+  }
+}

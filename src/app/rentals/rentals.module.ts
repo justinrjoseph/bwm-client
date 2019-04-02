@@ -11,7 +11,6 @@ import { SharedModule } from '../shared';
 
 // Components
 import { rentalComponents } from './components';
-import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 
 @NgModule({
   imports: [
@@ -20,6 +19,6 @@ import { RentalCreateComponent } from './components/rental-create/rental-create.
     Daterangepicker,
     NgbModule
   ],
-  declarations: [...rentalComponents, RentalCreateComponent]
+  declarations: [...rentalComponents]
 })
 export class RentalsModule {}

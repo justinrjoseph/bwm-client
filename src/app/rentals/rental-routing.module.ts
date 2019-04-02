@@ -7,16 +7,22 @@ import {
   RentalListComponent,
   RentalDetailComponent,
   RentalsFilterComponent,
-  RentalCreateComponent
+  RentalCreateComponent,
+  RentalEditComponent
 } from './components';
 
 // Guards
-import { AuthGuard } from '../shared/guards/auth.guard';
+import { AuthGuard, RentalGuard } from '../shared/guards';
 
 const routes: Routes = [
   { path: 'rentals', children: [
     { path: '', component: RentalListComponent },
     { path: 'new', component: RentalCreateComponent, canActivate: [AuthGuard] },
+    {
+      path: ':id/edit',
+      component: RentalEditComponent,
+      canActivate: [AuthGuard, RentalGuard]
+    },
     { path: ':id', component: RentalDetailComponent },
     { path: ':city/results', component: RentalsFilterComponent }
   ] }

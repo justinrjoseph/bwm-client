@@ -1,0 +1,38 @@
+<div class="edit-widget" [ngStyle]="style">
+  <ng-template [ngIf]="active" [ngIfElse]="title">
+    <select class="{{ entityClass }}" [(ngModel)]="entity[key]">
+      <option [selected]="!entity[key]" disabled></option>
+      <option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </ng-template>
+
+  <ng-template #title>
+    <span class="{{ entityClass }}">{{ entity[key] }}</span>
+  </ng-template>
+
+  <div class="edit-widget__buttons">
+    <button
+      *ngIf="!active"
+      class="btn btn-sm btn-warning edit-widget__btn"
+      (click)="active = true">
+      Edit
+    </button>
+
+    <button
+      *ngIf="active"
+      class="btn btn-sm btn-success edit-widget__btn"
+      (click)="updateEntity()"
+      [disabled]="entity[key] === originalValue">
+      Save
+    </button>
+
+    <button
+      *ngIf="active"
+      class="btn btn-sm btn-danger edit-widget__btn"
+      (click)="cancelEdit()">
+      Cancel
+    </button>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<section *ngIf="rental" class="rental">
+  <section class="rental__media">
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="rental.image" [alt]="rental.description">
+      </div>
+
+      <div class="col-md-6">
+        <map [location]="location"></map>
+      </div>
+    </div>
+  </section>
+
+  <section class="rental__details">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="rental__category"
+          [ngClass]="{
+            apartment: rental.category === Category.Apartment,
+            condo: rental.category === Category.Condo,
+            house: rental.category === Category.House
+          }">
+          Shared
+          <select-edit-widget
+            [(entity)]="rental"
+            [entityKey]="'shared'"
+            [entityClass]="'rental__shared'"
+            [style]="{ display: 'inline-block' }"
+            [options]="[true, false]"
+            (entityUpdated)="updateRental(rental._id, $event)">
+          </select-edit-widget>
+
+          <select-edit-widget
+            [(entity)]="rental"
+            [entityKey]="'category'"
+            [entityClass]="'rental__category'"
+            (entityUpdated)="updateRental(rental._id, $event)">
+          </select-edit-widget>
+        </h2>
+
+        <div class="rental__owner">
+          <img
+            src="https://api.adorable.io/avatars/285/abott@adorable.png"
+            alt="weird green face">
+
+          <span>{{ rental.user.name }}</span>
+        </div>
+
+        <input-edit-widget
+          [(entity)]="rental"
+          [entityKey]="'title'"
+          [entityClass]="'rental__title'"
+          (entityUpdated)="updateRental(rental._id, $event)">
+        </input-edit-widget>
+
+        <input-edit-widget
+          [(entity)]="rental"
+          [entityKey]="'city'"
+          [entityClass]="'rental__city'"
+          (entityUpdated)="updateRental(rental._id, $event)">
+        </input-edit-widget>
+
+        <input-edit-widget
+          [(entity)]="rental"
+          [entityKey]="'street'"
+          [entityClass]="'rental__street'"
+          (entityUpdated)="updateRental(rental._id, $event)">
+        </input-edit-widget>
+
+        <div class="rental__quarters">
+          <span class="rental__bedrooms">
+            <i class="fa fa-building"></i>
+            <input-edit-widget
+              [entityDataType]="'number'"
+              [(entity)]="rental"
+              [entityKey]="'bedrooms'"
+              [entityClass]="'rental__bedrooms'"
+              [style]="{ display: 'inline-block' }"
+              (entityUpdated)="updateRental(rental._id, $event)">
+            </input-edit-widget> bedrooms
+          </span>
+
+          <span>
+            <i class="fa fa-user"></i>
+            {{ guestCount }} guests
+          </span>
+
+          <span>
+            <i class="fa fa-bed"></i>
+            {{ bedCount }} beds
+          </span>
+        </div>
+
+        <textarea-edit-widget
+          [(entity)]="rental"
+          [entityKey]="'description'"
+          [entityClass]="'rental__description'"
+          (entityUpdated)="updateRental(rental._id, $event)">
+        </textarea-edit-widget>
+        <hr>
+
+        <div class="rental__amenities">
+          <h3>Amenities</h3>
+
+          <div class="row">
+            <div class="col-md-6">
+              <span><i class="fa fa-asterisk"></i> Cooling</span>
+              <span><i class="fa fa-thermometer"></i> Heating</span>
+              <span><i class="fa fa-location-arrow"></i> Iron</span>
+            </div>
+
+            <div class="col-md-6">
+              <span><i class="fa fa-desktop"></i> Fitness Area</span>
+              <span><i class="fa fa-cube"></i> Washing Machine</span>
+              <span><i class="fa fa-cube"></i> Dishwasher</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <booking [rental]="rental"></booking>
+      </div>
+    </div>
+  </section>
+</section>

@@ -8,7 +8,13 @@ import { NgPipesModule, UcWordsPipe } from 'ngx-pipes';
 import { AgmCoreModule } from '@agm/core';
 
 // Components
-import { MapComponent } from './components/map/map.component';
+import {
+  sharedComponents,
+  MapComponent,
+  InputEditWidgetComponent,
+  TextareaEditWidgetComponent,
+  SelectEditWidgetComponent
+} from './components';
 
 // Services
 import { MapService } from './services/map.service';
@@ -16,18 +22,22 @@ import { MapService } from './services/map.service';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     NgPipesModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBwLpqe7fiPXkPK72N0xe2j0O5nXCIi-s0'
     })
   ],
-  declarations: [MapComponent],
+  declarations: [...sharedComponents],
   providers: [MapService],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MapComponent,
+    InputEditWidgetComponent,
+    TextareaEditWidgetComponent,
+    SelectEditWidgetComponent,
     UcWordsPipe
   ]
 })

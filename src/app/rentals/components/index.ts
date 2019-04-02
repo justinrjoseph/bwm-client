@@ -4,6 +4,7 @@ import { RentalComponent } from './rental/rental.component';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { BookingComponent } from './booking/booking.component';
 import { RentalCreateComponent } from './rental-create/rental-create.component';
+import { RentalEditComponent } from './rental-edit/rental-edit.component';
 
 export const rentalComponents = [
   RentalsFilterComponent,
@@ -11,7 +12,8 @@ export const rentalComponents = [
   RentalComponent,
   RentalDetailComponent,
   BookingComponent,
-  RentalCreateComponent
+  RentalCreateComponent,
+  RentalEditComponent
 ];
 
 export {
@@ -20,5 +22,6 @@ export {
   RentalComponent,
   RentalDetailComponent,
   BookingComponent,
-  RentalCreateComponent
+  RentalCreateComponent,
+  RentalEditComponent
 };

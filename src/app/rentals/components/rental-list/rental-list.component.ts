@@ -25,13 +25,9 @@ export class RentalListComponent implements OnInit {
     const registered = this._route.snapshot.queryParams.registered;
     const loggedIn = this._route.snapshot.queryParams.loggedIn;
 
-    if ( registered ) {
-      this.message = 'Registration succesful';
-    }
+    if ( registered ) this.message = 'Registration succesful';
 
-    if ( loggedIn ) {
-      this.message = 'Logged in successfully';
-    }
+    if ( loggedIn ) this.message = 'Logged in successfully';
 
     this.rentals$ = this._rentalService.getAll();
   }
