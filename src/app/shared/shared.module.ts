@@ -6,6 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // Third-party modules
 import { NgPipesModule, UcWordsPipe } from 'ngx-pipes';
 import { AgmCoreModule } from '@agm/core';
+import { StarRatingModule, StarRatingComponent } from 'angular-star-rating';
 
 // Components
 import {
@@ -26,7 +27,8 @@ import { MapService } from './services/map.service';
     NgPipesModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBwLpqe7fiPXkPK72N0xe2j0O5nXCIi-s0'
-    })
+    }),
+    StarRatingModule.forRoot()
   ],
   declarations: [...sharedComponents],
   providers: [MapService],
@@ -34,6 +36,7 @@ import { MapService } from './services/map.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    StarRatingComponent,
     MapComponent,
     InputEditWidgetComponent,
     TextareaEditWidgetComponent,

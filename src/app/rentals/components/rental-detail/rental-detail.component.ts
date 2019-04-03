@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Rental, Category } from '../../../shared';
+import { Rental, Category, Review } from '../../../shared';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { RentalService } from '../../services/rental.service';
+import { RentalService, ReviewService } from '../../services';
 
 @Component({
   templateUrl: './rental-detail.component.html',
   styleUrls: ['./rental-detail.component.scss']
 })
 export class RentalDetailComponent implements OnInit {
+  id: string;
   rental: Rental;
   Category = Category;
+  rating: number;
+  reviews: Review[] = [];
 
   constructor(
     private _route: ActivatedRoute,
-    private _rentalService: RentalService
+    private _rentalService: RentalService,
+    private _reviewService: ReviewService
   ) {}
 
   ngOnInit() {
-    const id = this._route.snapshot.params.id;
+    this.id = this._route.snapshot.params.id;
 
-    this._rentalService.getOne(id)
-      .subscribe((rental: Rental) => this.rental = rental);
+    this._getRental();
+    this._getReviews();
   }
 
   get location() {
@@ -36,5 +40,15 @@ export class RentalDetailComponent implements OnInit {
 
   get bedCount(): number {
     return this.rental.bedrooms + 2;
+  }
+
+  private _getRental(): void {
+    this._rentalService.getOne(this.id)
+      .subscribe((rental: Rental) => this.rental = rental);
+  }
+
+  private _getReviews(): void {
+    this._reviewService.getAll(this.id)
+      .subscribe((reviews: Review[]) => this.reviews = reviews);
   }
 }

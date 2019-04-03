@@ -12,7 +12,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class RentalService {
-  rentalsAPI = environment.rentalsAPI;
+  private _rentalsAPI = environment.rentalsAPI;
   locationSubject = new Subject<string>();
 
   constructor(private _http: HttpClient) {}
@@ -22,38 +22,38 @@ export class RentalService {
   }
 
   getAll(): Observable<Rental[]> {
-    return this._http.get<Rental[]>(this.rentalsAPI);
+    return this._http.get<Rental[]>(this._rentalsAPI);
   }
 
   getAllForUser(): Observable<Rental[]> {
-    return this._http.get<Rental[]>(`${this.rentalsAPI}/manage`);
+    return this._http.get<Rental[]>(`${this._rentalsAPI}/manage`);
   }
 
   getOne(id: string): Observable<Rental> {
-    return this._http.get<Rental>(`${this.rentalsAPI}/${id}`);
+    return this._http.get<Rental>(`${this._rentalsAPI}/${id}`);
   }
 
   create(rental: Rental): Observable<Rental> {
-    return this._http.post<Rental>(this.rentalsAPI, rental);
+    return this._http.post<Rental>(this._rentalsAPI, rental);
   }
 
   update(id: string, update: Partial<Rental>): Observable<Rental> {
-    return this._http.patch<Rental>(`${this.rentalsAPI}/${id}`, update);
+    return this._http.patch<Rental>(`${this._rentalsAPI}/${id}`, update);
   }
 
   delete(id: string): Observable<Rental> {
-    return this._http.delete<Rental>(`${this.rentalsAPI}/${id}`);
+    return this._http.delete<Rental>(`${this._rentalsAPI}/${id}`);
   }
 
   filter(city: string): Observable<Rental[]> {
     const params = new HttpParams()
       .set('city', city);
 
-    return this._http.get<Rental[]>(this.rentalsAPI, { params });
+    return this._http.get<Rental[]>(this._rentalsAPI, { params });
   }
 
   checkOwner(id: string): Observable<boolean> {
-    return this._http.get<boolean>(`${this.rentalsAPI}/${id}/check-owner`);
+    return this._http.get<boolean>(`${this._rentalsAPI}/${id}/check-owner`);
   }
 
   changeLocation(location: string): void {

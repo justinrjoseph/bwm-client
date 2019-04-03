@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ViewEncapsulation, ElementRef } from '@angular/core';
 
 import { Booking, Rental } from '../../../shared';
 
@@ -73,7 +73,7 @@ export class BookingComponent implements OnInit {
     this.newBooking.totalPrice = this.newBooking.days * this.rental.dailyRate;
   }
 
-  launchConfirmRentalModal(content) {
+  launchConfirmRentalModal(content: ElementRef): void {
     this.error = null;
 
     this.modal = this._modal.open(content);

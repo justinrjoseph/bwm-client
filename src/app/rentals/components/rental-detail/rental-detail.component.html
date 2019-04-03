@@ -53,6 +53,15 @@
         </div>
 
         <p class="rental__description">{{ rental.description }}</p>
+
+        <star-rating
+          class="rental__rating"
+          [starType]="'svg'"
+          [numOfStars]="5"
+          [showHalfStars]="true"
+          [rating]="rental.rating"
+          [disabled]="true">
+        </star-rating>
         <hr>
 
         <div class="rental__amenities">
@@ -76,6 +85,50 @@
 
       <div class="col-md-4">
         <booking [rental]="rental"></booking>
+      </div>
+    </div>
+
+    <div *ngIf="reviews.length" class="row">
+      <div class="col-md-8">
+        <section>
+          <h2>Reviews</h2>
+
+          <div *ngFor="let review of reviews" class="card rental__review">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2">
+                  <img
+                    src="https://image.ibb.co/jw55Ex/def_face.jpg"
+                    class="img img-rounded img-fluid">
+
+                  <p class="text-secondary text-center">
+                    {{ review.createdAt | date:'longDate' }}
+                  </p>
+                </div>
+
+                <div class="col-md-10">
+                  <div>
+                    <a><strong>{{ review.user.name }}</strong></a>
+
+                    <div class="rental__review-details">
+                      <star-rating
+                        [starType]="'svg'"
+                        [numOfStars]="5"
+                        [showHalfStars]="true"
+                        [rating]="review.rating"
+                        [disabled]="true">
+                      </star-rating>
+                    </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+
+                  <p>{{ review.text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>

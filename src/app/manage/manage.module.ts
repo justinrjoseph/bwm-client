@@ -7,13 +7,12 @@ import { ManageRoutingModule } from './manage-routing.module';
 
 // Components
 import { manageComponents } from './components';
-import { BookingsComponent } from './components/bookings/bookings.component';
 
 @NgModule({
   imports: [
     SharedModule,
     ManageRoutingModule
   ],
-  declarations: [...manageComponents, BookingsComponent]
+  declarations: [...manageComponents]
 })
 export class ManageModule {}

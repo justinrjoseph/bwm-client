@@ -7,7 +7,8 @@ export const environment = {
   usersAPI: '/api/users',
   authAPI: '/api/auth',
   rentalsAPI: '/api/rentals',
-  bookingsAPI: '/api/bookings'
+  bookingsAPI: '/api/bookings',
+  reviewsAPI: '/api/reviews'
 };
 
 /*

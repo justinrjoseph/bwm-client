@@ -12,23 +12,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BookingService {
-  bookingsAPI = environment.bookingsAPI;
+  private _bookingsAPI = environment.bookingsAPI;
 
   constructor(private _http: HttpClient) {}
 
   getAll(): Observable<Booking[]> {
-    return this._http.get<Booking[]>(this.bookingsAPI);
+    return this._http.get<Booking[]>(this._bookingsAPI);
   }
 
   getAllForUser(): Observable<Booking[]> {
-    return this._http.get<Booking[]>(`${this.bookingsAPI}/manage`);
+    return this._http.get<Booking[]>(`${this._bookingsAPI}/manage`);
   }
 
   getOne(id: string): Observable<Booking> {
-    return this._http.get<Booking>(`${this.bookingsAPI}/${id}`);
+    return this._http.get<Booking>(`${this._bookingsAPI}/${id}`);
   }
 
   create(booking: Booking): Observable<Booking> {
-    return this._http.post<Booking>(this.bookingsAPI, booking);
+    return this._http.post<Booking>(this._bookingsAPI, booking);
   }
 }

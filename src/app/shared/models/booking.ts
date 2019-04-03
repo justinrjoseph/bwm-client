@@ -1,4 +1,4 @@
-import { Rental, User } from './';
+import { User, Rental, Review } from './';
 
 export class Booking {
   static readonly DATE_FORMAT = 'MM/DD/YYYY';
@@ -10,6 +10,7 @@ export class Booking {
   guests: number;
   totalPrice: number;
   createdAt: string;
-  rental: Rental;
   user: User;
+  rental: Rental;
+  review: Review;
 }

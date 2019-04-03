@@ -1,0 +1,53 @@
+<button class="btn btn-primary" (click)="launchReviewModal(content)">
+  Review Rental
+</button>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="review__modal">
+    <div class="modal-header">
+      <h4 class="modal-title review__modal__title">Share your opinion!</h4>
+
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <star-rating
+        [starType]="'svg'"
+        (ratingChange)="changeRating($event)">
+      </star-rating>
+
+      <textarea
+        rows="5"
+        cols="60"
+        placeholder="How was everything?"
+        [(ngModel)]="review.text"></textarea>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger review__modal__error">
+      {{ error }}
+    </div>
+
+    <div class="modal-footer review__modal__buttons">
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="c('Close click')">
+        Close
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="createReview()"
+        [disabled]="reviewNotReady">
+        Add Review
+      </button>
+    </div>
+  </div>
+</ng-template>

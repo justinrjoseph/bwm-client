@@ -34,6 +34,11 @@
 
           <div class="card-footer text-muted">
             Created on {{ booking.createdAt | date:'longDate' }}
+            <rental-review
+              *ngIf="reviewable(booking)"
+              [bookingId]="booking._id"
+              (reviewCreated)="refreshReviews($event)">
+            </rental-review>
           </div>
         </div>
       </div>

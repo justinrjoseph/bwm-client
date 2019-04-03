@@ -69,6 +69,10 @@
     margin-bottom: 1.875rem;
   }
 
+  .rating {
+    justify-content: left;
+  }
+
   &__amenities {
     h3 {
       font-size: 1.375rem;
@@ -80,6 +84,14 @@
       display: block;
       font-weight: 300;
       margin-bottom: .9375rem;
+    }
+  }
+
+  &__review {
+    margin-bottom: .9375em;
+
+    &-details {
+      float: right;
     }
   }
 }
